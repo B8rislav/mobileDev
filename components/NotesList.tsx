@@ -1,7 +1,8 @@
 import { useAppSelector } from '@/store/hooks';
 import { FC } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import { Note } from './types';
+import { NoteElement } from './ui/Note';
 
 type NotesListProps = {
   handleEditNote: (note: Note) => void;
@@ -16,9 +17,11 @@ export const NotesList: FC<NotesListProps> = (props) => {
   return (
     <ScrollView style={styles.noteList}>
       {notes.map((note) => (
-        <Pressable key={note.id} onPress={() => handleEditNote(note)}>
-          <Text style={styles.noteTitle}>{note.title}</Text>
-        </Pressable>
+        <NoteElement
+          key={note.id}
+          title={note.title}
+          onPress={() => handleEditNote(note)}
+        />
       ))}
     </ScrollView>
   );
@@ -27,16 +30,5 @@ export const NotesList: FC<NotesListProps> = (props) => {
 const styles = StyleSheet.create({
   noteList: {
     flex: 1,
-  },
-  noteTitle: {
-    fontSize: 15,
-    marginBottom: 10,
-    fontWeight: 'bold',
-    color: 'black',
-    backgroundColor: 'white',
-    height: 40,
-    width: '100%',
-    padding: 10,
-    borderRadius: 8,
   },
 });
