@@ -1,9 +1,12 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, Platform, StyleSheet, Text, View } from 'react-native';
 
 export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Explore!</Text>
+      <Text>{`Hello, ${
+        Platform.OS === 'android' ? 'android' : 'IOS'
+      } owner!`}</Text>
       <Image
         style={styles.image}
         source={require('./static/Blog-Edits.jpg')}
