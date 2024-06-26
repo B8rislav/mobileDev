@@ -11,7 +11,9 @@ export const NoteElement: FC<NoteElementProps> = (props) => {
 
   return (
     <Pressable onPress={onPress}>
-      <Text style={styles.noteTitle}>{title}</Text>
+      <Text testID="list-item" style={styles.noteTitle}>
+        {title}
+      </Text>
     </Pressable>
   );
 };

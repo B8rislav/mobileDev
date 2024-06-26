@@ -61,6 +61,7 @@ export default function HomeScreen() {
 
       {/* Add Note button */}
       <Pressable
+        data-testid="add-button"
         style={styles.addButton}
         onPress={() => {
           setTitle('');
@@ -76,6 +77,7 @@ export default function HomeScreen() {
         <View style={styles.modalContainer}>
           {/* Note title input */}
           <TextInput
+            testID="name-input"
             style={styles.input}
             placeholder="Enter note title"
             value={title}
@@ -94,6 +96,7 @@ export default function HomeScreen() {
           {/* Buttons for saving, canceling, and deleting */}
           <View style={styles.buttonContainer}>
             <Pressable
+              testID="save-button"
               onPress={handleSaveNote}
               style={{ ...styles.saveButton, ...styles.noteControl }}
             >
